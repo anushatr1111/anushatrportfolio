@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Send, Github, Linkedin, MapPin, MessageSquare } from "lucide-react";
+import { Mail, Send, Github, Linkedin, MapPin, MessageSquare, Sparkles } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -42,29 +42,31 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding">
+    <section id="contact" className="section-padding bg-secondary/30">
       <div className="section-container">
         <SectionHeading
           title="Get In Touch"
-          subtitle="Have a project in mind or want to discuss opportunities? Let's connect!"
+          subtitle="Let's connect and explore opportunities together"
         />
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14">
           {/* Contact Form */}
-          <Card variant="elevated" className="p-6 md:p-8">
-            <CardHeader className="p-0 pb-6">
-              <CardTitle className="flex items-center gap-2">
-                <MessageSquare className="h-5 w-5 text-primary" />
+          <Card variant="elevated" className="p-8 md:p-10">
+            <CardHeader className="p-0 pb-8">
+              <CardTitle className="flex items-center gap-3 font-heading text-2xl">
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <MessageSquare className="h-5 w-5 text-primary" />
+                </div>
                 Send a Message
               </CardTitle>
-              <CardDescription>
+              <CardDescription className="mt-2 text-base">
                 Fill out the form below and I'll respond as soon as possible.
               </CardDescription>
             </CardHeader>
             <CardContent className="p-0">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
+                  <Label htmlFor="name" className="text-sm font-medium">Name</Label>
                   <Input
                     id="name"
                     name="name"
@@ -72,12 +74,12 @@ export const ContactSection = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="h-12"
+                    className="h-12 bg-background/50 border-border/60 focus:border-primary"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email" className="text-sm font-medium">Email</Label>
                   <Input
                     id="email"
                     name="email"
@@ -86,12 +88,12 @@ export const ContactSection = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="h-12"
+                    className="h-12 bg-background/50 border-border/60 focus:border-primary"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message" className="text-sm font-medium">Message</Label>
                   <Textarea
                     id="message"
                     name="message"
@@ -100,7 +102,7 @@ export const ContactSection = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="resize-none"
+                    className="resize-none bg-background/50 border-border/60 focus:border-primary"
                   />
                 </div>
 
@@ -126,20 +128,20 @@ export const ContactSection = () => {
 
           {/* Contact Info */}
           <div className="space-y-6">
-            <Card variant="glass" className="p-6">
+            <Card variant="glass" className="p-8">
               <CardContent className="p-0 space-y-6">
                 <h3 className="text-xl font-heading font-semibold text-foreground">
                   Let's Connect
                 </h3>
-                <p className="text-muted-foreground">
-                  I'm currently open to internship opportunities in AI/ML and Software Engineering.
-                  Whether you have a question, a project idea, or just want to say hi, feel free to reach out!
+                <p className="text-muted-foreground leading-relaxed">
+                  I'm actively seeking full-time opportunities in AI/ML and Software Engineering.
+                  Whether you have a question, a project idea, or just want to say hi—I'd love to hear from you!
                 </p>
 
                 <div className="space-y-4">
                   <a
                     href={`mailto:${personalInfo.email}`}
-                    className="flex items-center gap-4 p-4 bg-background/50 rounded-lg hover:bg-background/80 transition-colors group"
+                    className="flex items-center gap-4 p-4 bg-background/60 rounded-xl hover:bg-background/90 transition-all duration-300 group"
                   >
                     <div className="p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors">
                       <Mail className="h-5 w-5 text-primary" />
@@ -150,9 +152,9 @@ export const ContactSection = () => {
                     </div>
                   </a>
 
-                  <div className="flex items-center gap-4 p-4 bg-background/50 rounded-lg">
-                    <div className="p-3 bg-accent/10 rounded-xl">
-                      <MapPin className="h-5 w-5 text-accent" />
+                  <div className="flex items-center gap-4 p-4 bg-background/60 rounded-xl">
+                    <div className="p-3 bg-rose/15 rounded-xl">
+                      <MapPin className="h-5 w-5 text-rose" />
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Location</p>
@@ -185,16 +187,19 @@ export const ContactSection = () => {
             </Card>
 
             {/* Availability Status */}
-            <Card variant="gradient" className="p-6">
+            <Card variant="gradient" className="p-6 bg-gradient-to-br from-primary/10 via-rose/10 to-lavender/10 border-primary/20">
               <CardContent className="p-0 flex items-center gap-4">
                 <div className="relative">
-                  <div className="w-4 h-4 bg-green-500 rounded-full" />
-                  <div className="absolute inset-0 w-4 h-4 bg-green-500 rounded-full animate-ping opacity-50" />
+                  <div className="w-4 h-4 bg-primary rounded-full" />
+                  <div className="absolute inset-0 w-4 h-4 bg-primary rounded-full animate-ping opacity-40" />
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground">Available for Internships</p>
+                  <div className="flex items-center gap-2">
+                    <p className="font-semibold text-foreground">Open to Full-Time Opportunities</p>
+                    <Sparkles className="h-4 w-4 text-accent" />
+                  </div>
                   <p className="text-sm text-muted-foreground">
-                    Looking for AI/ML and Software Engineering roles
+                    AI/ML · Software Engineering · Fresher
                   </p>
                 </div>
               </CardContent>

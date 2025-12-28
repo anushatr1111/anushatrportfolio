@@ -1,52 +1,110 @@
 export const personalInfo = {
   name: "Anusha T R",
   title: "AI | ML | Software Engineer",
-  tagline: "Building intelligent, scalable, real-world solutions with AI and full-stack engineering.",
-  email: "anushatr@example.com",
-  github: "https://github.com/anushatr",
+  subtitle: "Fresher",
+  tagline: "Building intelligent, scalable systems with clarity, discipline, and purpose.",
+  email: "anushatr1111@gmail.com",
+  github: "https://github.com/anushatr1111",
   linkedin: "https://linkedin.com/in/anushatr",
   resumeUrl: "/resume.pdf",
 };
 
 export const aboutMe = {
-  summary: `Computer Science Engineering student (2022–2026) with a passion for creating intelligent systems that solve real-world problems. I specialize in AI, Machine Learning, Natural Language Processing, and Full-Stack Development, with hands-on experience building scalable applications.
+  summary: `I'm a Computer Science Engineering graduate with a passion for creating intelligent systems that solve real-world problems. My expertise spans AI, Machine Learning, Generative AI, Cloud Computing, and Full-Stack Development—backed by hands-on project experience and industry internships.
 
-My journey spans from developing fraud detection systems using NLP to creating cross-platform mobile applications with real-time AI integration. I thrive at the intersection of cutting-edge AI research and practical software engineering.
+I approach every challenge with discipline, consistency, and a growth mindset. Whether it's building fraud detection systems using NLP, developing cross-platform mobile applications, or deploying ML models on the cloud—I bring clarity and purpose to my work.
 
-Currently seeking challenging internship opportunities where I can contribute my skills in Python, deep learning frameworks, and modern web technologies while continuing to grow as an engineer.`,
+Currently seeking full-time opportunities where I can contribute my technical skills while continuing to grow as an engineer. Ready to make an impact from day one.`,
   highlights: [
-    "150+ DSA problems solved on LeetCode",
-    "Smart India Hackathon 2025 participant",
+    "Job-Ready with Strong Project Experience",
+    "150+ DSA Problems Solved on LeetCode",
     "AWS Certified Cloud Practitioner",
-    "Active open-source contributor",
+    "Google Cloud & Generative AI Certified",
   ],
 };
 
 export const skills = {
-  programming: {
-    title: "Programming Languages",
-    icon: "Code2",
-    items: ["Python", "Java", "JavaScript", "TypeScript", "Dart", "SQL", "NoSQL", "HTML5", "CSS3"],
-  },
   aiml: {
-    title: "AI / Machine Learning",
+    title: "AI / ML & Generative AI",
     icon: "Brain",
-    items: ["Machine Learning", "NLP", "CNN", "Deep Learning", "PyTorch", "TensorFlow", "Scikit-learn", "Feature Engineering", "Text Classification"],
+    color: "primary",
+    items: [
+      "Machine Learning",
+      "Deep Learning", 
+      "NLP",
+      "CNNs",
+      "Generative AI",
+      "LLMs",
+      "Prompt Engineering",
+      "AI Agents",
+      "Responsible AI",
+      "PyTorch",
+      "TensorFlow",
+      "Scikit-learn",
+      "Vertex AI",
+    ],
+  },
+  cloud: {
+    title: "Cloud, MLOps & DevOps",
+    icon: "Cloud",
+    color: "lavender",
+    items: [
+      "Google Cloud Platform",
+      "AWS",
+      "Docker",
+      "Kubernetes (GKE)",
+      "Cloud Build",
+      "CI/CD Pipelines",
+      "Artifact Registry",
+      "Model Deployment",
+    ],
+  },
+  data: {
+    title: "Data & Analytics",
+    icon: "BarChart3",
+    color: "sage",
+    items: [
+      "SQL",
+      "NoSQL",
+      "BigQuery",
+      "Looker Studio",
+      "BI Dashboards",
+      "Data Visualization",
+      "Feature Engineering",
+    ],
+  },
+  software: {
+    title: "Software Engineering",
+    icon: "Code2",
+    color: "accent",
+    items: [
+      "Data Structures & Algorithms",
+      "OOP",
+      "System Design",
+      "REST APIs",
+      "Microservices",
+      "Git & GitHub",
+      "Python",
+      "Java",
+      "JavaScript",
+      "TypeScript",
+    ],
   },
   webdev: {
     title: "Web & App Development",
     icon: "Globe",
-    items: ["React.js", "Node.js", "Express.js", "Flask", "Django", "Flutter", "Bootstrap"],
-  },
-  databases: {
-    title: "Databases",
-    icon: "Database",
-    items: ["MongoDB", "MySQL", "Firebase", "Database Design", "Query Optimization"],
-  },
-  cloud: {
-    title: "Cloud & DevOps",
-    icon: "Cloud",
-    items: ["AWS", "Docker", "Git", "GitHub", "CI/CD", "REST APIs", "Microservices", "Cloud Computing"],
+    color: "rose",
+    items: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "Flask",
+      "Django",
+      "Flutter",
+      "MongoDB",
+      "MySQL",
+      "Firebase",
+    ],
   },
 };
 
@@ -99,7 +157,7 @@ export const projects = [
     description: "Cross-platform safety application featuring real-time GPS tracking, emergency alerts, and AI-powered threat detection. Built with Flutter for seamless iOS and Android deployment.",
     impact: "Enables users to share live location with trusted contacts and trigger emergency responses instantly.",
     technologies: ["Flutter", "Dart", "Firebase", "Google Maps API", "AI Integration"],
-    github: "https://github.com/anushatr/aura-safe",
+    github: "https://github.com/anushatr1111/aura-safe-app.git",
     image: "aura-safe",
   },
   {
@@ -108,7 +166,7 @@ export const projects = [
     description: "Deep learning model utilizing Convolutional Neural Networks for automated plant disease identification, helping farmers make data-driven decisions for crop health management.",
     impact: "Achieves high accuracy in identifying multiple plant diseases from leaf images, supporting agricultural automation.",
     technologies: ["Python", "PyTorch", "CNN", "Computer Vision", "Flask", "Deep Learning"],
-    github: "https://github.com/anushatr/plant-disease-detection",
+    github: "https://github.com/anushatr1111/Plant-detection-diease.git",
     image: "plant-disease",
   },
   {
@@ -117,7 +175,7 @@ export const projects = [
     description: "Responsive weather application with real-time data visualization, providing accurate forecasts and interactive weather maps powered by external APIs.",
     impact: "Delivers instant weather updates with intuitive UI/UX for planning daily activities.",
     technologies: ["JavaScript", "HTML5", "CSS3", "REST API", "Data Visualization"],
-    github: "https://github.com/anushatr/weather-app",
+    github: "https://github.com/anushatr1111/weather-app.git",
     image: "weather-app",
   },
 ];
@@ -154,31 +212,37 @@ export const googleSkills = [
     id: 1,
     title: "Prompt Design in Vertex AI",
     issuer: "Google Cloud",
-    category: "AI/ML",
+    category: "Generative AI",
   },
   {
     id: 2,
     title: "Introduction to Generative AI",
     issuer: "Google Cloud",
-    category: "AI/ML",
+    category: "Generative AI",
   },
   {
     id: 3,
     title: "Introduction to Large Language Models",
     issuer: "Google Cloud",
-    category: "AI/ML",
+    category: "Generative AI",
   },
   {
     id: 4,
     title: "Responsible AI",
     issuer: "Google Cloud",
-    category: "AI/ML",
+    category: "Generative AI",
   },
   {
     id: 5,
     title: "Machine Learning Engineer Study Guide",
     issuer: "Google Cloud",
-    category: "AI/ML",
+    category: "ML Engineering",
+  },
+  {
+    id: 6,
+    title: "Vertex AI & AI Agents",
+    issuer: "Google Cloud",
+    category: "AI Development",
   },
 ];
 
@@ -242,11 +306,39 @@ export const education = {
   },
 };
 
+export const blogPosts = [
+  {
+    id: 1,
+    title: "The Art of Consistency in Tech",
+    excerpt: "How discipline and daily practice transformed my approach to learning and problem-solving in AI/ML.",
+    date: "Coming Soon",
+    category: "Reflections",
+    readTime: "5 min read",
+  },
+  {
+    id: 2,
+    title: "Getting Started with Generative AI",
+    excerpt: "A beginner-friendly guide to understanding LLMs, prompt engineering, and building your first AI application.",
+    date: "Coming Soon",
+    category: "AI/ML",
+    readTime: "8 min read",
+  },
+  {
+    id: 3,
+    title: "From DSA to Real-World Projects",
+    excerpt: "Bridging the gap between competitive coding and building production-ready applications.",
+    date: "Coming Soon",
+    category: "Career",
+    readTime: "6 min read",
+  },
+];
+
 export const navLinks = [
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
-  { href: "#certifications", label: "Certifications" },
+  { href: "#certifications", label: "Credentials" },
+  { href: "#blog", label: "Journal" },
   { href: "#contact", label: "Contact" },
 ];
