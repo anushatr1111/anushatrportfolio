@@ -15,92 +15,9 @@ export const HeroSection = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
       
       <div className="section-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Content */}
-          <div className="space-y-8 text-center lg:text-left order-2 lg:order-1">
-            <div className="space-y-6 animate-fade-up">
-              {/* Status Badge */}
-              <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-primary/10 rounded-full border border-primary/20 backdrop-blur-sm">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary" />
-                </span>
-                <span className="text-sm font-medium text-primary">Open to Full-Time Opportunities</span>
-              </div>
-              
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-heading leading-[1.1] tracking-tight">
-                Hi, I'm{" "}
-                <span className="gradient-text">{personalInfo.name}</span>
-              </h1>
-              
-              <div className="space-y-2">
-                <p className="text-xl sm:text-2xl font-heading font-medium text-foreground/90">
-                  {personalInfo.title}
-                </p>
-                <p className="text-lg font-medium text-rose flex items-center justify-center lg:justify-start gap-2">
-                  <Sparkles className="h-4 w-4" />
-                  {personalInfo.subtitle}
-                </p>
-              </div>
-              
-              <p className="text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                {personalInfo.tagline}
-              </p>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start animate-fade-up delay-200">
-              <Button variant="hero" size="lg" asChild className="group">
-                <a href="#projects">
-                  View Projects
-                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </a>
-              </Button>
-              <Button variant="heroOutline" size="lg" asChild>
-                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
-                  <Github className="h-5 w-5" />
-                  GitHub
-                </a>
-              </Button>
-            </div>
-
-            {/* Secondary Actions */}
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start animate-fade-up delay-300">
-              <Button variant="ghost" size="default" asChild className="text-muted-foreground hover:text-foreground">
-                <a href={personalInfo.resumeUrl} download>
-                  <Download className="h-4 w-4" />
-                  Download Resume
-                </a>
-              </Button>
-              <Button variant="ghost" size="default" asChild className="text-muted-foreground hover:text-foreground">
-                <a href="#contact">
-                  <Mail className="h-4 w-4" />
-                  Contact Me
-                </a>
-              </Button>
-            </div>
-
-            {/* Stats */}
-            <div className="flex items-center gap-8 justify-center lg:justify-start pt-6 animate-fade-up delay-400">
-              <div className="text-center lg:text-left">
-                <p className="text-3xl font-bold font-heading gradient-text">150+</p>
-                <p className="text-sm text-muted-foreground">LeetCode Problems</p>
-              </div>
-              <div className="h-12 w-px bg-border" />
-              <div className="text-center lg:text-left">
-                <p className="text-3xl font-bold font-heading gradient-text">3+</p>
-                <p className="text-sm text-muted-foreground">Internships</p>
-              </div>
-              <div className="h-12 w-px bg-border" />
-              <div className="text-center lg:text-left">
-                <p className="text-3xl font-bold font-heading gradient-text">8.0</p>
-                <p className="text-sm text-muted-foreground">CGPA</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Image */}
-          <div className="flex justify-center lg:justify-end animate-fade-up delay-200 order-1 lg:order-2">
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+          {/* Image - Centered at top */}
+          <div className="animate-fade-up mb-10">
             <div className="relative">
               {/* Decorative ring */}
               <div className="absolute inset-0 -m-4 rounded-full border-2 border-dashed border-primary/20 animate-[spin_30s_linear_infinite]" />
@@ -109,7 +26,7 @@ export const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-rose/30 via-lavender/20 to-primary/20 rounded-full blur-2xl scale-110" />
               
               {/* Image Container */}
-              <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden border-4 border-card shadow-2xl animate-gentle-float">
+              <div className="relative w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-full overflow-hidden border-4 border-card shadow-2xl">
                 <img
                   src={profilePhoto}
                   alt="Anusha T R - AI/ML Software Engineer"
@@ -118,9 +35,90 @@ export const HeroSection = () => {
               </div>
 
               {/* Decorative Elements */}
-              <div className="absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-br from-primary to-primary/60 rounded-2xl rotate-12 opacity-80" />
-              <div className="absolute -bottom-2 -left-2 w-12 h-12 bg-gradient-to-br from-rose to-rose/60 rounded-2xl -rotate-12 opacity-80" />
-              <div className="absolute top-1/4 -left-6 w-8 h-8 bg-lavender rounded-full opacity-60" />
+              <div className="absolute -top-2 -right-2 w-12 h-12 bg-gradient-to-br from-primary to-primary/60 rounded-2xl rotate-12 opacity-80" />
+              <div className="absolute -bottom-2 -left-2 w-10 h-10 bg-gradient-to-br from-rose to-rose/60 rounded-2xl -rotate-12 opacity-80" />
+              <div className="absolute top-1/4 -left-4 w-6 h-6 bg-lavender rounded-full opacity-60" />
+            </div>
+          </div>
+
+          {/* Content - Centered below image */}
+          <div className="space-y-6 animate-fade-up delay-100">
+            {/* Status Badge */}
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-primary/10 rounded-full border border-primary/20 backdrop-blur-sm">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary" />
+              </span>
+              <span className="text-sm font-medium text-primary">Open to Full-Time Opportunities</span>
+            </div>
+            
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading leading-[1.1] tracking-tight">
+              Hi, I'm{" "}
+              <span className="gradient-text">{personalInfo.name}</span>
+            </h1>
+            
+            <div className="space-y-2">
+              <p className="text-xl sm:text-2xl font-heading font-medium text-foreground/90">
+                {personalInfo.title}
+              </p>
+              <p className="text-lg font-medium text-rose flex items-center justify-center gap-2">
+                <Sparkles className="h-4 w-4" />
+                {personalInfo.subtitle}
+              </p>
+            </div>
+            
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
+              {personalInfo.tagline}
+            </p>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap gap-4 justify-center mt-8 animate-fade-up delay-200">
+            <Button variant="hero" size="lg" asChild className="group">
+              <a href="#projects">
+                View Projects
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </a>
+            </Button>
+            <Button variant="heroOutline" size="lg" asChild>
+              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
+                <Github className="h-5 w-5" />
+                GitHub
+              </a>
+            </Button>
+          </div>
+
+          {/* Secondary Actions */}
+          <div className="flex flex-wrap gap-4 justify-center mt-4 animate-fade-up delay-300">
+            <Button variant="ghost" size="default" asChild className="text-muted-foreground hover:text-foreground">
+              <a href={personalInfo.resumeUrl} download>
+                <Download className="h-4 w-4" />
+                Download Resume
+              </a>
+            </Button>
+            <Button variant="ghost" size="default" asChild className="text-muted-foreground hover:text-foreground">
+              <a href="#contact">
+                <Mail className="h-4 w-4" />
+                Contact Me
+              </a>
+            </Button>
+          </div>
+
+          {/* Stats */}
+          <div className="flex items-center gap-8 justify-center pt-8 animate-fade-up delay-400">
+            <div className="text-center">
+              <p className="text-3xl font-bold font-heading gradient-text">150+</p>
+              <p className="text-sm text-muted-foreground">LeetCode Problems</p>
+            </div>
+            <div className="h-12 w-px bg-border" />
+            <div className="text-center">
+              <p className="text-3xl font-bold font-heading gradient-text">3+</p>
+              <p className="text-sm text-muted-foreground">Internships</p>
+            </div>
+            <div className="h-12 w-px bg-border" />
+            <div className="text-center">
+              <p className="text-3xl font-bold font-heading gradient-text">8.0</p>
+              <p className="text-sm text-muted-foreground">CGPA</p>
             </div>
           </div>
         </div>
