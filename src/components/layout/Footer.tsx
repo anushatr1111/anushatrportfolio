@@ -26,7 +26,7 @@ export const Footer = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {link.label}
                 </a>
@@ -42,7 +42,7 @@ export const Footer = () => {
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="p-2 text-muted-foreground hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/10"
                 aria-label="GitHub"
               >
                 <Github className="h-5 w-5" />
@@ -51,14 +51,14 @@ export const Footer = () => {
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="p-2 text-muted-foreground hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/10"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="p-2 text-muted-foreground hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/10"
                 aria-label="Email"
               >
                 <Mail className="h-5 w-5" />
@@ -72,7 +72,7 @@ export const Footer = () => {
             © {currentYear} {personalInfo.name}. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Built with <Heart className="h-4 w-4 text-destructive fill-destructive" /> using React & Tailwind
+            Built with <Heart className="h-4 w-4 text-rose fill-rose animate-pulse" /> using React & Tailwind
           </p>
         </div>
       </div>

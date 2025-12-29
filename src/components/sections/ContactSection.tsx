@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Send, Github, Linkedin, MapPin, MessageSquare, Sparkles } from "lucide-react";
+import { Mail, Send, Github, Linkedin, MapPin, MessageSquare, Sparkles, CheckCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -32,13 +33,17 @@ export const ContactSection = () => {
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
+    setIsSuccess(true);
     toast({
       title: "Message sent!",
       description: "Thank you for reaching out. I'll get back to you soon.",
     });
 
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
+    setTimeout(() => {
+      setFormData({ name: "", email: "", message: "" });
+      setIsSubmitting(false);
+      setIsSuccess(false);
+    }, 2000);
   };
 
   return (
@@ -51,7 +56,7 @@ export const ContactSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14">
           {/* Contact Form */}
-          <Card variant="elevated" className="p-8 md:p-10">
+          <Card variant="elevated" className="p-8 md:p-10 transition-all duration-300 hover:shadow-xl">
             <CardHeader className="p-0 pb-8">
               <CardTitle className="flex items-center gap-3 font-heading text-2xl">
                 <div className="p-2 bg-primary/10 rounded-lg">
@@ -74,7 +79,7 @@ export const ContactSection = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="h-12 bg-background/50 border-border/60 focus:border-primary"
+                    className="h-12 bg-background/50 border-border/60 focus:border-primary transition-all duration-300 focus:shadow-lg focus:shadow-primary/5"
                   />
                 </div>
 
@@ -88,7 +93,7 @@ export const ContactSection = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="h-12 bg-background/50 border-border/60 focus:border-primary"
+                    className="h-12 bg-background/50 border-border/60 focus:border-primary transition-all duration-300 focus:shadow-lg focus:shadow-primary/5"
                   />
                 </div>
 
@@ -102,7 +107,7 @@ export const ContactSection = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="resize-none bg-background/50 border-border/60 focus:border-primary"
+                    className="resize-none bg-background/50 border-border/60 focus:border-primary transition-all duration-300 focus:shadow-lg focus:shadow-primary/5"
                   />
                 </div>
 
@@ -110,11 +115,19 @@ export const ContactSection = () => {
                   type="submit"
                   variant="hero"
                   size="lg"
-                  className="w-full"
-                  disabled={isSubmitting}
+                  className="w-full transition-all duration-300"
+                  disabled={isSubmitting || isSuccess}
                 >
-                  {isSubmitting ? (
-                    <>Sending...</>
+                  {isSuccess ? (
+                    <span className="flex items-center gap-2 animate-fade-in">
+                      <CheckCircle className="h-5 w-5" />
+                      Message Sent!
+                    </span>
+                  ) : isSubmitting ? (
+                    <span className="flex items-center gap-2">
+                      <div className="h-5 w-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Sending...
+                    </span>
                   ) : (
                     <>
                       <Send className="h-5 w-5" />
@@ -128,7 +141,7 @@ export const ContactSection = () => {
 
           {/* Contact Info */}
           <div className="space-y-6">
-            <Card variant="glass" className="p-8">
+            <Card variant="glass" className="p-8 transition-all duration-300 hover:shadow-lg">
               <CardContent className="p-0 space-y-6">
                 <h3 className="text-xl font-heading font-semibold text-foreground">
                   Let's Connect
@@ -141,14 +154,14 @@ export const ContactSection = () => {
                 <div className="space-y-4">
                   <a
                     href={`mailto:${personalInfo.email}`}
-                    className="flex items-center gap-4 p-4 bg-background/60 rounded-xl hover:bg-background/90 transition-all duration-300 group"
+                    className="flex items-center gap-4 p-4 bg-background/60 rounded-xl hover:bg-background/90 transition-all duration-300 group hover:shadow-md"
                   >
-                    <div className="p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors">
+                    <div className="p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                       <Mail className="h-5 w-5 text-primary" />
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Email</p>
-                      <p className="font-medium text-foreground">{personalInfo.email}</p>
+                      <p className="font-medium text-foreground group-hover:text-primary transition-colors">{personalInfo.email}</p>
                     </div>
                   </a>
 
@@ -166,19 +179,19 @@ export const ContactSection = () => {
             </Card>
 
             {/* Social Links */}
-            <Card variant="elevated" className="p-6">
+            <Card variant="elevated" className="p-6 transition-all duration-300 hover:shadow-lg">
               <CardContent className="p-0 space-y-4">
                 <h4 className="font-heading font-semibold text-foreground">Find me on</h4>
                 <div className="flex gap-4">
-                  <Button variant="heroOutline" size="lg" className="flex-1" asChild>
+                  <Button variant="heroOutline" size="lg" className="flex-1 group hover:shadow-md transition-all duration-300" asChild>
                     <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="h-5 w-5" />
+                      <Github className="h-5 w-5 transition-transform group-hover:scale-110" />
                       GitHub
                     </a>
                   </Button>
-                  <Button variant="heroOutline" size="lg" className="flex-1" asChild>
+                  <Button variant="heroOutline" size="lg" className="flex-1 group hover:shadow-md transition-all duration-300" asChild>
                     <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">
-                      <Linkedin className="h-5 w-5" />
+                      <Linkedin className="h-5 w-5 transition-transform group-hover:scale-110" />
                       LinkedIn
                     </a>
                   </Button>
@@ -187,7 +200,7 @@ export const ContactSection = () => {
             </Card>
 
             {/* Availability Status */}
-            <Card variant="gradient" className="p-6 bg-gradient-to-br from-primary/10 via-rose/10 to-lavender/10 border-primary/20">
+            <Card variant="gradient" className="p-6 bg-gradient-to-br from-primary/10 via-rose/10 to-lavender/10 border-primary/20 transition-all duration-300 hover:shadow-lg hover:border-primary/30">
               <CardContent className="p-0 flex items-center gap-4">
                 <div className="relative">
                   <div className="w-4 h-4 bg-primary rounded-full" />

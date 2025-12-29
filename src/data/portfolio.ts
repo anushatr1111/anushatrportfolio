@@ -5,7 +5,7 @@ export const personalInfo = {
   tagline: "Building intelligent, scalable systems with clarity, discipline, and purpose.",
   email: "anushatr1111@gmail.com",
   github: "https://github.com/anushatr1111",
-  linkedin: "https://linkedin.com/in/anushatr",
+  linkedin: "https://www.linkedin.com/in/anushatrm090524/",
   resumeUrl: "/resume.pdf",
 };
 
