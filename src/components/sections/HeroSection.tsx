@@ -1,11 +1,16 @@
 import { ArrowRight, Github, Download, Mail, Sparkles, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/portfolio";
-import profilePhoto from "@/assets/profile-photo.jpg";
+import profilePhoto1 from "@/assets/profile-1.jpg";
+import profilePhoto2 from "@/assets/profile-2.jpg";
+import profilePhoto3 from "@/assets/profile-3.jpg";
 import { useEffect, useState } from "react";
+
+const profilePhotos = [profilePhoto1, profilePhoto2, profilePhoto3];
 
 export const HeroSection = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +18,14 @@ export const HeroSection = () => {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Auto-rotate carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % profilePhotos.length);
+    }, 4000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -29,7 +42,7 @@ export const HeroSection = () => {
           style={{ transform: `translateY(${scrollY * 0.3}px)` }}
         >
           <img
-            src={profilePhoto}
+            src={profilePhotos[0]}
             alt=""
             aria-hidden="true"
             className="w-full h-full object-cover object-center opacity-30 blur-sm"
@@ -181,16 +194,21 @@ export const HeroSection = () => {
                   }}
                 >
                   <div 
-                    className="w-full h-full bg-card overflow-hidden"
+                    className="w-full h-full bg-card overflow-hidden relative"
                     style={{
                       borderRadius: '58% 42% 47% 53% / 53% 47% 52% 48%'
                     }}
                   >
-                    <img
-                      src={profilePhoto}
-                      alt="Anusha T R - AI/ML Software Engineer"
-                      className="w-full h-full object-cover scale-125 object-[center_70%] transition-transform duration-700 group-hover:scale-130"
-                    />
+                    {profilePhotos.map((photo, index) => (
+                      <img
+                        key={index}
+                        src={photo}
+                        alt={`Anusha T R - AI/ML Software Engineer ${index + 1}`}
+                        className={`absolute inset-0 w-full h-full object-cover scale-125 object-[center_30%] transition-opacity duration-1000 ${
+                          index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                        }`}
+                      />
+                    ))}
                   </div>
                 </div>
               </div>
