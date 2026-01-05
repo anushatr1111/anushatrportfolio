@@ -2,18 +2,32 @@ import { ArrowRight, Github, Download, Mail, Sparkles, Linkedin } from "lucide-r
 import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/portfolio";
 import profilePhoto from "@/assets/profile-photo.jpg";
+import { useEffect, useState } from "react";
 
 export const HeroSection = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Full-width Background Banner with Image */}
+      {/* Full-width Background Banner with Image - Parallax */}
       <div className="absolute inset-0">
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/60 z-10" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/80 z-10" />
         
-        {/* Background image - subtle on right side */}
-        <div className="absolute right-0 top-0 w-full h-full">
+        {/* Background image - subtle on right side with parallax */}
+        <div 
+          className="absolute right-0 top-0 w-full h-[120%] transition-transform duration-100 ease-out"
+          style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+        >
           <img
             src={profilePhoto}
             alt=""
@@ -22,10 +36,19 @@ export const HeroSection = () => {
           />
         </div>
         
-        {/* Decorative gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-rose/15 rounded-full blur-[150px] z-0" />
-        <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] bg-lavender/15 rounded-full blur-[120px] z-0" />
-        <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] z-0" />
+        {/* Decorative gradient orbs with parallax */}
+        <div 
+          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-rose/15 rounded-full blur-[150px] z-0 transition-transform duration-100 ease-out"
+          style={{ transform: `translateY(${scrollY * 0.15}px) translateX(${scrollY * 0.05}px)` }}
+        />
+        <div 
+          className="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] bg-lavender/15 rounded-full blur-[120px] z-0 transition-transform duration-100 ease-out"
+          style={{ transform: `translateY(${scrollY * 0.2}px) translateX(${scrollY * -0.08}px)` }}
+        />
+        <div 
+          className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] z-0 transition-transform duration-100 ease-out"
+          style={{ transform: `translate(-50%, -50%) translateY(${scrollY * 0.1}px)` }}
+        />
       </div>
       
       <div className="section-container relative z-20 py-20">
