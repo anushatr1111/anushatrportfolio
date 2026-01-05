@@ -180,7 +180,7 @@ export const HeroSection = () => {
               
               {/* Main organic blob image container */}
               <div 
-                className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 overflow-hidden shadow-2xl transition-all duration-500 group-hover:shadow-rose/30"
+                className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] overflow-hidden shadow-2xl transition-all duration-500 group-hover:shadow-rose/30"
                 style={{
                   borderRadius: '60% 40% 45% 55% / 55% 45% 50% 50%',
                   animation: 'blob-morph-subtle 12s ease-in-out infinite'
