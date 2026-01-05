@@ -189,7 +189,7 @@ export const HeroSection = () => {
                     <img
                       src={profilePhoto}
                       alt="Anusha T R - AI/ML Software Engineer"
-                      className="w-full h-full object-cover scale-125 object-[center_35%] transition-transform duration-700 group-hover:scale-130"
+                      className="w-full h-full object-cover scale-125 object-[center_50%] transition-transform duration-700 group-hover:scale-130"
                     />
                   </div>
                 </div>
